@@ -11,6 +11,21 @@ let velocidadeYBolinha = 4;
 
 // ---------------------------------------------------------------------------------
 
+// Variaveis da Raquete ------------------------------------------------------------
+
+let xRaquete = 5 // vertical
+let yRaquete = 150 //  horizontal
+let larguraRaquete = 10 // largura
+let alturaRaquete = 90 // altura
+
+
+
+// ---------------------------------------------------------------------------------
+
+
+
+
+// Funções Principais --------------------------------------------------------
 
 
 function setup() {
@@ -22,7 +37,13 @@ function draw() {
   mostraBolinha();
   movimentaBolinha();
   verificaColisaoBorda();
+  mostraRaquete();
+  movimentaMinhaRaquete();
 }
+
+
+// Funções da Bolinha --------------------------------------------------------
+
 
 function mostraBolinha() {
   circle(xBolinha, yBolinha, diametro); // circle (x,y,d);
@@ -42,4 +63,25 @@ function verificaColisaoBorda() {
   if (yBolinha + raio > height || yBolinha - raio < 0) {
     velocidadeYBolinha *= -1;
   }
+}
+
+
+// Funções da Raquete --------------------------------------------------------
+
+function mostraRaquete() {
+    rect(xRaquete, yRaquete, larguraRaquete, alturaRaquete); // x, y, w, h
+
+}
+
+function movimentaMinhaRaquete() {
+  if (keyIsDown(UP_ARROW)) {
+    yRaquete -= 10;
+  }
+  
+  if (keyIsDown(DOWN_ARROW)) {
+    yRaquete +=10; 
+  }
+  
+  // o número 10 será a velocidade do movimento
+  
 }
