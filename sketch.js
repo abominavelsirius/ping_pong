@@ -6,8 +6,8 @@ let raio = diametro / 2;
 
 // Velocidade da Bolinha --------------------------------------------
 
-let velocidadeXBolinha = 4;
-let velocidadeYBolinha = 4;
+let velocidadeXBolinha = 6;
+let velocidadeYBolinha = 6;
 
 // ---------------------------------------------------------------------------------
 
@@ -39,6 +39,7 @@ function draw() {
   verificaColisaoBorda();
   mostraRaquete();
   movimentaMinhaRaquete();
+  verificaColisaoRaquete();
 }
 
 
@@ -82,6 +83,12 @@ function movimentaMinhaRaquete() {
     yRaquete +=10; 
   }
   
-  // o número 10 será a velocidade do movimento
+  // o número será a velocidade do movimento
   
+}
+
+function verificaColisaoRaquete() {
+  if (xBolinha - raio < xRaquete + larguraRaquete && yBolinha - raio < yRaquete + alturaRaquete && yBolinha + raio > yRaquete) {
+    velocidadeXBolinha *= -1
+  }
 }
